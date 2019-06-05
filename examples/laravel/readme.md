@@ -56,6 +56,10 @@ mix.js('resources/js/app.js', 'public/js')
 */
 ```
 
+Run
+
+`npm run watch`
+
 Import css in your views
 
 `<link href="{{ asset('css/app.css') }}" rel="stylesheet">`
