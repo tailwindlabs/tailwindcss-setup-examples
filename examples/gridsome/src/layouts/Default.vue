@@ -1,12 +1,10 @@
 <template>
-  <div class="layout">
-    <header class="header">
-      <strong>
-        <g-link to="/">{{ $static.metaData.siteName }}</g-link>
-      </strong>
-      <nav class="nav">
-        <g-link class="nav__link" to="/">Home</g-link>
-        <g-link class="nav__link" to="/about">About</g-link>
+  <div class="mx-auto px-8 max-w-3xl">
+    <header class="flex justify-between items-center mb-10 h-16">
+      <g-link to="/" class="text-lg font-normal">{{ $static.metaData.siteName }}</g-link>
+      <nav>
+        <g-link class="text-teal-500 hover:underline" to="/">Home</g-link>
+        <g-link class="ml-6 text-teal-500 hover:underline" to="/about">About</g-link>
       </nav>
     </header>
     <slot/>
@@ -27,24 +25,5 @@ body {
   margin:0;
   padding:0;
   line-height: 1.5;
-}
-
-.layout {
-  max-width: 760px;
-  margin: 0 auto;
-  padding-left: 20px;
-  padding-right: 20px;
-}
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-  height: 80px;
-}
-
-.nav__link {
-  margin-left: 20px;
 }
 </style>
