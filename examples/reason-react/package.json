@@ -1,0 +1,26 @@
+{
+  "name": "reason-react-boilerplate",
+  "version": "0.1.0",
+  "scripts": {
+    "start": "concurrently -c --kill-others 'yarn:start:bsb' 'yarn:start:parcel'",
+    "start:bsb": "bsb -make-world -w",
+    "start:parcel": "parcel public/index.html --open",
+    "clean": "bsb -clean-world && rm -rf .cache dist",
+    "build": "yarn clean && bsb -make-world && parcel build public/index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Thibaut Mattio",
+  "license": "MIT",
+  "dependencies": {
+    "autoprefixer": "^9.6.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "reason-react": "^0.7.0"
+  },
+  "devDependencies": {
+    "bs-platform": "^5.0.4",
+    "concurrently": "^4.1.0",
+    "parcel-bundler": "^1.12.3",
+    "tailwindcss": "^1.0.3"
+  }
+}

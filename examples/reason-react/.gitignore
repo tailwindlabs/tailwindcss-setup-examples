@@ -1,0 +1,14 @@
+# Normal npm stuff
+.DS_Store
+npm-debug.log
+/node_modules/
+/.cache/
+/dist/
+
+# Bucklescript stuff
+.merlin
+.bsb.lock
+lib
+
+# Bucklescript compiled js files
+*.bs.js
