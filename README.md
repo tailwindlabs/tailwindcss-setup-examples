@@ -5,6 +5,7 @@ A repository of examples showing how to setup Tailwind in a variety of different
 ## Available Examples
 
 - [vue-cli](examples/vue-cli)
+- [Jekyll](examples/jekyll)
 
 ## Requested Examples
 
