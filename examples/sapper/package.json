@@ -4,7 +4,8 @@
   "version": "0.0.1",
   "scripts": {
     "watch:tailwind": "postcss static/tailwind.css -o static/index.css -w",
-    "build": "sapper build --legacy",
+    "build:tailwind": "NODE_ENV=production postcss static/tailwind.css -o static/index.css",
+    "build": "npm run build:tailwind && sapper build --legacy",
     "dev": "sapper dev",
     "export": "sapper export --legacy",
     "start": "node __sapper__/build",
@@ -13,6 +14,7 @@
     "test": "run-p --race dev cy:run"
   },
   "dependencies": {
+    "@fullhuman/postcss-purgecss": "^1.2.0",
     "compression": "^1.7.1",
     "polka": "^0.5.0",
     "sirv": "^0.4.0"
