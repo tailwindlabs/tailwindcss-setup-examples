@@ -63,7 +63,7 @@ Update your `package.json` with the custom scripts.
 Finally, add a stylesheet link to your `src/template.html` file
 
 ```html
-<link rel="stylesheet" href="tailwind.css" />
+<link rel="stylesheet" href="index.css" />
 ```
 
 ## Project setup
