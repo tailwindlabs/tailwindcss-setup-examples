@@ -5,6 +5,7 @@ A repository of examples showing how to setup Tailwind in a variety of different
 ## Available Examples
 
 - [vue-cli](examples/vue-cli)
+- [laravel](examples/laravel)
 
 ## Requested Examples
 
@@ -27,7 +28,6 @@ If we're missing you're favorite framework, don't hesitate to PR that either!
 
 ### Server-side Frameworks
 
-- Laravel
 - Rails
 - Django
 - Symfony
