@@ -10,6 +10,7 @@ Please note that these examples are for the most part contributed and maintained
 - [nuxt](examples/nuxt)
 - [Laravel](examples/laravel-postcss-only) (PostCSS-only)
 - [Gridsome](examples/gridsome)
+- [Wordpress](examples/wordpress-laravel-mix) (using Laravel Mix)
 
 ## Requested Examples
 
