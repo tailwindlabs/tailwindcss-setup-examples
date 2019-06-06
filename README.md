@@ -31,7 +31,6 @@ Some that we're missing that we'd love to have:
 
 - Ember.js
 - Angular
-- Next.js
 - Gatsby
 - Rails
 - Django
