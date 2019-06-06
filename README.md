@@ -4,6 +4,9 @@ A repository of examples showing how to setup Tailwind in a variety of different
 
 ## Available Examples
 
+- [create-react-app](https://mikefrancis.dev/blog/create-react-app-tailwind-css)
+- [Gatsby](https://mikefrancis.dev/blog/gatsby-tailwind)
+- [Next.js](https://mikefrancis.dev/blog/next-js-tailwind-css)
 - [vue-cli](examples/vue-cli)
 
 ## Requested Examples
@@ -16,13 +19,11 @@ If we're missing you're favorite framework, don't hesitate to PR that either!
 
 ### JS Frameworks
 
-- create-react-app
+
 - Ember.js
 - Sapper
 - Angular
-- Next.js
 - Nuxt.js
-- Gatsby
 - Gridsome
 
 ### Server-side Frameworks
