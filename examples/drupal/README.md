@@ -4,6 +4,12 @@ Example of setting up Tailwind and PurgeCSS in a Drupal theme using Laravel Mix.
 
 ## Instructions
 
+Initialize your package.json - if not already done so.
+
+__Yarn__: `yarn init`
+
+__NPM__: `npm init`
+
 Install Tailwind, Laravel Mix, PurgeCSS and cross-env
 
 __Yarn__
@@ -24,6 +30,23 @@ Create a css file with your tailwind styles. In this theme, we've stored them in
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+```
+
+Make sure to add the path to the css file to your `theme_name.libraries.yml` config
+
+```yaml
+global-styling:
+  version: 1.x
+  css:
+    theme:
+      dist/css/main.css: {}
+```
+
+AND register the new library under the `libraries` key of your `theme_name.info.yml` file
+
+```yaml
+libraries:
+  - theme_name/global-styling
 ```
 
 Generate your TailwindCSS config
@@ -68,13 +91,13 @@ Before installing the theme, make sure to run `npm run dev` or `npm run prod` at
 
 ## Theme Setup
 
-1. Copy theme `theme_name` folder into your project's `themes/custom`
-  * Rename and replace all instance of `theme_name` to whatever you desire
+1. Copy the `theme_name` folder into your project's `themes/custom`
+  * Rename and replace all instances of `theme_name` to whatever you desire
 2. Run `npm install`
   * If you prefer yarn, run `yarn import`, delete the `package-lock.json` file, then run `yarn install`.
-3. Install the theme in the Drupal admin (/admin/appearance)
+3. Install the theme in the Drupal admin `/admin/appearance`
 4. Clear the cache
-  * From the dashboard, go to /admin/config/development/performance and "Clear All Caches"
+  * From the dashboard, go to `/admin/config/development/performance` and "Clear All Caches"
   * Or, if you using drush, run `drush cr`
 
 ### Available Commands
