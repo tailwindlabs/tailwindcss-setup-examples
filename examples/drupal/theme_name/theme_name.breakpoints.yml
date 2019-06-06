@@ -1,22 +1,22 @@
-builder.small:
+theme_name.small:
   label: small
   mediaQuery: "(min-width: 640px)"
   weight: 0
   multipliers:
     - 1x
-builder.tablet:
+theme_name.tablet:
   label: tablet
   mediaQuery: "all and (min-width: 768px)"
   weight: 1
   multipliers:
     - 1x
-builder.large:
+theme_name.large:
   label: large
   mediaQuery: "all and (min-width: 1024px)"
   weight: 2
   multipliers:
     - 1x
-builder.xlarge:
+theme_name.xlarge:
   label: "extra large"
   mediaQuery: "all and (min-width: 1280px)"
   weight: 2
