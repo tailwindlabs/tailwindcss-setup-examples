@@ -2,6 +2,8 @@
 
 A repository of examples showing how to setup Tailwind in a variety of different frameworks and environments.
 
+Please note that these examples are for the most part contributed and maintained by the community, and we merge them without a ton of review because it seems more helpful to have *something* than nothing. If you notice any issues or inconsistencies across different examples, we welcome all contributions to improve them.
+
 ## Available Examples
 
 - [vue-cli](examples/vue-cli)
