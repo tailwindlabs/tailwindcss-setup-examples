@@ -21,6 +21,11 @@ If we're missing you're favorite framework/static site generator/CMS/whatever, w
 
 Please include instructions for the setup process as well, so it's easier for others to follow. [Here's an example](examples/vue-cli/README.md).
 
+Try to keep the examples as simple as humanly possible, ideally there would be two commits:
+
+1. Initializing the default project, usually using some CLI tool provided by the framework (like `vue create my-project` with vue-cli).
+2. The minimum necessary changes to add Tailwind to the project.
+
 Some that we're missing that we'd love to have:
 
 - Ember.js
