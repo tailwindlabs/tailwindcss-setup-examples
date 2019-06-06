@@ -5,6 +5,7 @@ A repository of examples showing how to setup Tailwind in a variety of different
 ## Available Examples
 
 - [vue-cli](examples/vue-cli)
+- [gridsome](examples/gridsome)
 
 ## Requested Examples
 
@@ -23,7 +24,6 @@ If we're missing you're favorite framework, don't hesitate to PR that either!
 - Next.js
 - Nuxt.js
 - Gatsby
-- Gridsome
 
 ### Server-side Frameworks
 
