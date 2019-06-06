@@ -7,7 +7,9 @@ Please note that these examples are for the most part contributed and maintained
 ## Available Examples
 
 - [vue-cli](examples/vue-cli)
-- [nuxt](examples/nuxt)
+- [Nuxt.js](examples/nuxt)
+- [Svelte](examples/svelte)
+- [Sapper](examples/sapper)
 - [Laravel](examples/laravel-postcss-only) (PostCSS-only)
 - [Gridsome](examples/gridsome)
 - [Wordpress](examples/wordpress-laravel-mix) (using Laravel Mix)
@@ -24,10 +26,8 @@ If we're missing you're favorite framework, don't hesitate to PR that either!
 
 - create-react-app
 - Ember.js
-- Sapper
 - Angular
 - Next.js
-- Nuxt.js
 - Gatsby
 
 ### Server-side Frameworks
