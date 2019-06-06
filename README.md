@@ -8,6 +8,7 @@ Please note that these examples are for the most part contributed and maintained
 
 - [vue-cli](examples/vue-cli)
 - [Nuxt.js](examples/nuxt)
+- [Next.js](examples/nextjs)
 - [Svelte](examples/svelte)
 - [Sapper](examples/sapper)
 - [Laravel](examples/laravel-postcss-only) (PostCSS-only)
@@ -32,7 +33,6 @@ Some that we're missing that we'd love to have:
 
 - Ember.js
 - Angular
-- Next.js
 - Gatsby
 - Rails
 - Django
