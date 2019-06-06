@@ -6,12 +6,10 @@
 
         <title>Laravel</title>
 
-        <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head>
-    <body class="bg-white text-gray-600 font-sans font-thin h-screen m-0">
+    <body class="bg-white text-gray-600 font-sans font-thin min-h-screen m-0">
         <div class="flex items-center justify-end h-12 no-underline text-sm font-normal">
             @if (Route::has('login'))
                 <div class="top-right links">
