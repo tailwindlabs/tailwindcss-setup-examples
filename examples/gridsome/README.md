@@ -3,8 +3,8 @@
 If you don't have an existing Gridsome project, check out their docs on how to get started.
 
 This plugin makes use of the gridsome-plugin-tailwindcss plugin to add
-*Tailwind*, *PurgeCSS*, *postcss-preset-env*, and *postcss-import* to your build chain.
-It includes both *gridsome-plugin-tailwindcss* and the regular *tailwindcss* so
+Tailwind, PurgeCSS, postcss-preset-env, and postcss-import to your build chain.
+It includes both gridsome-plugin-tailwindcss and the regular tailwindcss so
 that you can write your own plugins and access the default config in
 `tailwind.config.js`.
 
@@ -15,9 +15,9 @@ import 'tailwindcss/tailwind.css'
 ```
 
 It's recommended to use `tailwind.config.js` to add [global base styles](https://tailwindcss.com/docs/adding-base-styles#using-a-plugin),
-components, utilities instead of adding them in CSS files.
+components, and utilities instead of adding them in CSS files.
 
-Or add the directives somewhere in your CSS.
+Or you can add the directives somewhere in your CSS.
 
 ```css
 @tailwind base;
