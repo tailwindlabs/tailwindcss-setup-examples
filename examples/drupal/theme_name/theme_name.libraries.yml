@@ -1,0 +1,9 @@
+global-styling:
+  version: 1.x
+  css:
+    theme:
+      dist/css/main.css: {}
+global-scripts:
+  version: 1.x
+  js:
+    dist/js/main.js: {}

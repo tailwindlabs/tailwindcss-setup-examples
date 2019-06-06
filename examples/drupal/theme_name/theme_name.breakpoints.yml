@@ -1,0 +1,24 @@
+builder.small:
+  label: small
+  mediaQuery: "(min-width: 640px)"
+  weight: 0
+  multipliers:
+    - 1x
+builder.tablet:
+  label: tablet
+  mediaQuery: "all and (min-width: 768px)"
+  weight: 1
+  multipliers:
+    - 1x
+builder.large:
+  label: large
+  mediaQuery: "all and (min-width: 1024px)"
+  weight: 2
+  multipliers:
+    - 1x
+builder.xlarge:
+  label: "extra large"
+  mediaQuery: "all and (min-width: 1280px)"
+  weight: 2
+  multipliers:
+    - 1x
