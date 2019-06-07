@@ -1,0 +1,5 @@
+:host {}
+
+.shadow-class {
+  @apply text-blue-500;
+}
