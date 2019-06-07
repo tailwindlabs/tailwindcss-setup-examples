@@ -12,7 +12,7 @@ Then add it to your PostCSS config (use a separate `postcss.config.js` file):
 module.exports = {
   plugins: [
     require('tailwindcss'),
-    //other plugins (autoprefixer, cssnano, etc.)
+    //other plugins (autoprefixer, purgecss, postcss-import, postcss-preset-env, etc.)
   ]
 }
 ```
