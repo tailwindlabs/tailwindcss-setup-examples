@@ -1,0 +1,8 @@
+{# Look for a template for this entry type (if any), then look for a template matching #}
+{# the entry's slug, and fallback to the default '_entry' template #}
+
+{% include [
+    'pages/_' ~ entry.type,
+    'pages/_' ~ entry.slug,
+    'pages/_entry'
+] %}

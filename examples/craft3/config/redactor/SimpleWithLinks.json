@@ -1,0 +1,10 @@
+{
+    "buttons": [
+        "bold",
+        "italic",
+        "lists",
+        "link"
+    ],
+    "linkNewTab": true,
+    "toolbarFixed": true
+}

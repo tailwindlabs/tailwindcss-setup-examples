@@ -1,0 +1,54 @@
+dateModified: 1560005150
+email:
+  fromEmail: m@blode.co
+  fromName: Setup
+  transportType: craft\mail\transportadapters\Sendmail
+fieldGroups:
+  7964c054-935d-4b1a-93ea-ca599e1bb90e:
+    name: Common
+sections:
+  7f17f42b-a81b-4456-9b94-6fe43aebce69:
+    name: Home
+    handle: home
+    type: single
+    enableVersioning: true
+    propagateEntries: true
+    siteSettings:
+      0a733729-dbdd-4c47-8798-c89874b73c5a:
+        enabledByDefault: true
+        hasUrls: true
+        uriFormat: __home__
+        template: ''
+    entryTypes:
+      45a9d8c4-2d94-4990-98b9-1cd31ecb55ec:
+        name: Home
+        handle: home
+        hasTitleField: false
+        titleLabel: null
+        titleFormat: '{section.name|raw}'
+        sortOrder: 1
+siteGroups:
+  976a8792-98b0-4af8-ad79-b9da5914d8b4:
+    name: Setup
+sites:
+  0a733729-dbdd-4c47-8798-c89874b73c5a:
+    baseUrl: $DEFAULT_SITE_URL
+    handle: default
+    hasUrls: true
+    language: en-AU
+    name: Setup
+    primary: true
+    siteGroup: 976a8792-98b0-4af8-ad79-b9da5914d8b4
+    sortOrder: 1
+system:
+  edition: solo
+  name: Setup
+  live: true
+  schemaVersion: 3.1.28
+  timeZone: America/Los_Angeles
+users:
+  requireEmailVerification: true
+  allowPublicRegistration: false
+  defaultGroup: null
+  photoVolumeUid: null
+  photoSubpath: ''

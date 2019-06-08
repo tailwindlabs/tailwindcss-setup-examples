@@ -1,0 +1,53 @@
+{# ------------------------ #}
+{# EXAMPLE                  #}
+{# ------------------------ #}
+{#
+
+{% set limit = 6 %}
+{% paginate craft.entries.limit(limit) as pageInfo, pageEntries %}
+
+{% for project in pageEntries %}
+    ... do stuff here
+{% endfor %}
+
+{% include '_includes/pagination' with { limit: limit } %}
+
+#}
+{% set query = craft.app.request.queryStringWithoutPath | replace('/page=[0-9]+/', '') %}
+
+{% if limit is not defined %}
+    {% set limit = 9 %}
+{% endif %}
+
+{% if pageInfo.total > limit %}
+    <div class="pagination">
+        {% if pageInfo.prevUrl %}
+            <a rel="prev" class="pagination-btn pagination-prev-btn" href="{{ url(pageInfo.prevUrl, query) }}">
+                <span class="icon icon-left-open" aria-hidden="true"></span> Previous
+            </a>
+        {% else %}
+            <span class="pagination-btn pagination-prev-btn pagination-btn-disabled">
+                <span class="icon icon-left-open" aria-hidden="true"></span> Previous
+            </span>
+        {% endif %}
+
+        {% for page, url in pageInfo.getPrevUrls(5) %}
+            <a class="pagination-page" href="{{ url(url, query) }}">{{ page }}</a>
+        {% endfor %}
+
+        <span class="pagination-page pagination-page-current">{{ pageInfo.currentPage }}</span>
+
+        {% for page, url in pageInfo.getNextUrls(5) %}
+            <a class="pagination-page" href="{{ url(url, query) }}">{{ page }}</a>
+        {% endfor %}
+
+        {% if pageInfo.nextUrl %}
+            <a rel="next" class="pagination-btn pagination-next-btn" href="{{ url(pageInfo.nextUrl, query) }}">Next
+                <span class="icon icon-right-open" aria-hidden="true"></span></a>
+        {% else %}
+            <span class="pagination-btn pagination-next-btn pagination-btn-disabled">
+                Next <span class="icon icon-right-open" aria-hidden="true"></span>
+            </span>
+        {% endif %}
+    </div>
+{% endif %}

@@ -1,0 +1,38 @@
+{% set seoTitle = 'Service Unavailable' %}
+
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Responsive-ness -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{{ seoTitle }}</title>
+
+    <!-- CSS -->
+    <link href="/assets/css/style.css" media="all" rel="stylesheet" />
+</head>
+<body class="preload error-page">
+
+<div class="section-page section-error">
+    <div class="container">
+        <h2 class="h1 error-number">503</h2>
+        <h3 class="error-title">{{ seoTitle | smartypants }}</h3>
+
+        <div class="page-content">
+            <p>Our site is temporarily unavailable. Please <a href="/contact">contact us</a> about this issue.</p>
+
+            {% if message is defined %}
+                <div style="display: none;">{{ message }}</div>
+            {% endif %}
+
+            <a href="/" class="btn btn-primary">Return home</a>
+        </div>
+    </div>
+</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/assets/js/min/jquery.min.js"><\/script>')</script>
+<script src="/assets/js/min/main.min.js"></script>
+</body>
+</html>

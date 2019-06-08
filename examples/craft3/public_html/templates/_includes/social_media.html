@@ -1,0 +1,55 @@
+{% set socialMedia = socialMedia.socialMedia %}
+
+{% if socialMedia.facebook %}
+    <li class="icon icon-sm">
+        <a class="footer-link link-sm" href="{{ socialMedia.facebook }}" target="_blank">
+            <span aria-hidden="true" class="icon icon-facebook"></span>
+            <span class="sr-only">Like us on Facebook</span>
+        </a>
+    </li>
+{% endif %}
+
+{% if socialMedia.twitter %}
+    <li class="icon icon-sm">
+        <a class="footer-link link-sm" href="{{ socialMedia.twitter }}" target="_blank">
+            <span aria-hidden="true" class="icon icon-twitter"></span>
+            <span class="sr-only">Follow us on Twitter</span>
+        </a>
+    </li>
+{% endif %}
+
+{% if socialMedia.google %}
+    <li class="icon icon-sm">
+        <a class="footer-link link-sm" href="{{ socialMedia.google }}" target="_blank">
+            <span aria-hidden="true" class="icon icon-gplus"></span>
+            <span class="sr-only">Follow us on Google+</span>
+        </a>
+    </li>
+{% endif %}
+
+{% if socialMedia.instagram %}
+    <li class="icon icon-sm">
+        <a class="footer-link link-sm" href="{{ socialMedia.instagram }}" target="_blank">
+            <span aria-hidden="true" class="icon icon-instagram"></span>
+            <span class="sr-only">Follow us on Instagram</span>
+        </a>
+    </li>
+{% endif %}
+
+{% if socialMedia.youtube %}
+    <li class="icon icon-sm">
+        <a class="footer-link link-sm" href="{{ socialMedia.youtube }}" target="_blank">
+            <span aria-hidden="true" class="icon icon-youtube"></span>
+            <span class="sr-only">Follow us on YouTube</span>
+        </a>
+    </li>
+{% endif %}
+
+{% if socialMedia.linkedIn %}
+    <li class="icon icon-sm">
+        <a class="footer-link link-sm" href="{{ socialMedia.linkedIn }}" target="_blank">
+            <span aria-hidden="true" class="icon icon-linkedin"></span>
+            <span class="sr-only">Follow us on linkedIn</span>
+        </a>
+    </li>
+{% endif %}

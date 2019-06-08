@@ -1,0 +1,24 @@
+{% set seoTitle = 'Bad Request' %}
+
+{% extends "_layout" %}
+
+{% block content %}
+
+<div class="section-page section-error">
+    <div class="container">
+        <h2 class="h1 error-number">400</h2>
+        <h1 class="page-heading">{{ seoTitle | smartypants }}</h1>
+
+        <div class="page-content">
+            <p>The request could not be understood by the server due to malformed syntax. Please <a href="/contact">contact us</a> about this issue.</p>
+
+            {% if message is defined %}
+                <div style="display: none;">{{ message }}</div>
+            {% endif %}
+
+            <a href="/" class="btn btn-primary">Return home</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
