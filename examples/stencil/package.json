@@ -9,11 +9,11 @@
     "start": "stencil build --dev --watch --serve"
   },
   "dependencies": {
-    "@stencil/core": "1.0.1"
+    "@stencil/core": "1.0.2"
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^1.2.0",
-    "@stencil/postcss": "^0.1.0",
+    "@stencil/postcss": "^1.0.1",
     "@types/autoprefixer": "^9.5.0",
     "@types/node": "^12.0.7",
     "autoprefixer": "^9.6.0",
