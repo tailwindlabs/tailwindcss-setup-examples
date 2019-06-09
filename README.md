@@ -2,7 +2,7 @@
 
 A repository of examples showing how to setup Tailwind in a variety of different frameworks and environments.
 
-Please note that these examples are for the most part contributed and maintained by the community, and we merge them without a ton of review because it seems more helpful to have *something* than nothing. If you notice any issues or inconsistencies across different examples, we welcome all contributions to improve them.
+Please note that these examples are for the most part contributed and maintained by the community, and we merge them without a ton of review because it seems more helpful to have _something_ than nothing. If you notice any issues or inconsistencies across different examples, we welcome all contributions to improve them.
 
 ## Available Examples
 
@@ -16,6 +16,7 @@ Please note that these examples are for the most part contributed and maintained
 - [Wordpress](examples/wordpress-laravel-mix) (using Laravel Mix)
 - [Statamic v2](examples/statamic-v2-laravel-mix) (using Laravel Mix)
 - [Jekyll](examples/jekyll)
+- [Stencil](examples/stencil)
 
 ## Contributing
 
