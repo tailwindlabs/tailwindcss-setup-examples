@@ -40,7 +40,7 @@ Create the file `./assets/postcss.config.js`
     }
 
 
-Next step is to instruct Webpacker to use that file. Edit `assets/webpack.config.js` and change the line
+Next step is to instruct Webpack to use that file. Edit `assets/webpack.config.js` and change the line
 
     use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader']
 
