@@ -1,3 +1,21 @@
+@import './button.css';
+
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
+
+:hover a.btn-blue {
+    cursor: pointer
+}
+
+/* I'm usless */
+.i-will-be-removed {
+    color: black;
+}
+
+/* purgecss start ignore */
+.i-should-be-removed {
+    color: red;
+}
+/* purgecss end ignore */
