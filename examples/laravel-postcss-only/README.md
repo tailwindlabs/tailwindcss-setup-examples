@@ -24,17 +24,6 @@ mix.js('resources/js/app.js', 'public/js')
     ]);
 ```
 
-Then add it to your PostCSS config (use a separate `postcss.config.js` file):
-
-```js
-module.exports = {
-  plugins: [
-    require('tailwindcss'),
-    require('autoprefixer'),
-  ]
-}
-```
-
 Finally, import that CSS file in your Blade templates/layout:
 
 ```html
