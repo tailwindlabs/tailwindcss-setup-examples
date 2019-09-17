@@ -113,7 +113,7 @@ Next, create the Tailwind config file:
 npx tailwind init
 ```
 
-Finally, add this to `src/styles.css`:
+Finally, add this to `src/styles.scss`:
 
 ```scss
 @import "tailwindcss/base";
