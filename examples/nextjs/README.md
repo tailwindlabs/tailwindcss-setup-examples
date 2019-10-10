@@ -18,6 +18,12 @@ module.exports = {
 }
 ```
 
+Next, create a `next.config.js` file and add the following configuration so Next can handle css file imports: 
+```
+const withCSS = require('@zeit/next-css')
+module.exports = withCSS()
+```
+
 Next, create a CSS file in your `static` folder for your Tailwind styles. We've used `static/css/tailwind.css` for this example:
 
 ```css
