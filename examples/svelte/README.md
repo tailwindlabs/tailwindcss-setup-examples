@@ -55,7 +55,7 @@ Update your `package.json` with the custom scripts.
 "scripts": {
     "watch:tailwind": "postcss public/tailwind.css -o public/index.css -w",
     "build:tailwind": "NODE_ENV=production postcss public/tailwind.css -o public/index.css",
-    "dev": "run-p start:dev autobuild watch:build",
+    "dev": "run-p start:dev autobuild --watch:build",
     "build": "npm run build:tailwind && rollup -c",
 
 }
