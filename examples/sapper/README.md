@@ -1,6 +1,6 @@
 # Sapper
 
-Setting up Tailwind with Sapper is really simple, just install Tailwind and pocstcss-cli:
+Setting up Tailwind with Sapper is really simple, just install Tailwind and postcss-cli:
 
 ```sh
 npm install tailwindcss postcss-cli --save-dev
