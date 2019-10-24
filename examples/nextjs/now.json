@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "name": "tailwind-starters",
+  "builds": [
+    {
+      "src": "next.config.js",
+      "use": "@now/next"
+    }
+  ],
+  "routes": [
+    {
+      "src": "^/(.*).(css|js|svg|png|jpg|woff2)",
+      "headers": {
+        "cache-control": "public,max-age=31536000,immutable"
+      }
+    },
+    {
+      "src": "^/(.*).html",
+      "headers": {
+        "cache-control": "public,max-age=0,must-revalidate"
+      }
+    }
+  ],
+  "alias": ["tailwind.now.sh"]
+}
