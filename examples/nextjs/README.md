@@ -18,7 +18,7 @@ module.exports = {
 }
 ```
 
-Next, create a CSS file in your `static` folder for your Tailwind styles. We've used `static/css/tailwind.css` for this example:
+Next, create a CSS file for your Tailwind styles. We've used `css/tailwind.css` for this example:
 
 ```css
 @import "tailwindcss/base";
@@ -26,13 +26,19 @@ Next, create a CSS file in your `static` folder for your Tailwind styles. We've 
 @import "tailwindcss/utilities";
 ```
 
-Finally, import your CSS in your main layout component. Here we're using `components/Layout.js`:
+Finally, import your CSS in your `_app.js` component to make them available globally:
 
 ```jsx
-import '../static/css/tailwind.css'
+import React from 'react'
+import App from 'next/app'
+import '../css/tailwind.css'
 
-export default ({ children }) => (
-  <div>
-    // ...
-  </div>
-)
+class MyApp extends App {
+  render() {
+    const { Component, pageProps } = this.props
+    return <Component {...pageProps} />
+  }
+}
+
+export default MyApp
+```
