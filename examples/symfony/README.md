@@ -35,7 +35,7 @@ To build production ready assets:
 yarn build
 ```
 
-After assets have been built (development or production assets), start the development server:
+After assets have been built, start the development server:
 
 ```sh
 bin/console server:start
