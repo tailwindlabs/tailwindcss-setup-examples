@@ -1,8 +1,10 @@
 # Symfony
 
-This example shows how to use Tailwind with both Symfony and Vue. Note that the use of Vue is not required but setup is shown for completeness. Getting started is straightforward and quick.
+This example shows how to use Tailwind with both Symfony and Vue. Note that the use of Vue is not required but setup is shown for completeness.
 
 When working in the development environment, all of Tailwind will be included. When building production assets (see blow) PurgeCSS will remove unused CSS classes from the generated stylesheet.
+
+Getting started is straightforward and quick.
 
 ```sh
 composer install
