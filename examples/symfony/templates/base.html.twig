@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html class="antialiased bg-white" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
+    <meta content="ie=edge" http-equiv="x-ua-compatible">
+
+    <title>{% block title 'Symfony + Tailwind + Vue' %}</title>
+
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+</head>
+
+<body class="font-normal font-sans text-black">
+    <main id="app">
+        {% block body '' %}
+    </main>
+
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+    {% endblock %}
+</body>
+</html>
