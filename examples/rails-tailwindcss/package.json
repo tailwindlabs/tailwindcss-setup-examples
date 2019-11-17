@@ -1,5 +1,11 @@
 {
   "name": "rails-tailwindcss",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "@rails/webpacker": "^4.2.0",
+    "tailwindcss": "~1.0.0"
+  },
+  "devDependencies": {
+    "webpack-dev-server": "^3.9.0"
+  }
 }
