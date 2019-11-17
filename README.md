@@ -17,6 +17,7 @@ Please note that these examples are for the most part contributed and maintained
 - [Statamic v2](examples/statamic-v2-laravel-mix) (using Laravel Mix)
 - [Jekyll](examples/jekyll)
 - [Ember](examples/ember-tailwind) (PostCSS)
+- [Rails 5](examples/rails-tailwindcss)
 
 ## Contributing
 
