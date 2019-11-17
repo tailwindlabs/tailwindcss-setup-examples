@@ -1,24 +1,51 @@
-# README
+# Rails App with Tailwindcss
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This Rails app uses:
+- Rails `5.2.3`
+- ruby `2.6.5``
+- [webpacker](https://github.com/rails/webpacker) gem
+- [tailwindcss](https://github.com/IcaliaLabs/tailwindcss-rails) gem
 
-Things you may want to cover:
+and intgrates [Tailwindcss](https://tailwindcss.com/) framework.
 
-* Ruby version
+### Installation
 
-* System dependencies
+- cd to the project
+- run `bundle` to install the dependencies
+- run `rails s` to start the server
+- point your browser to `localhost:3000``
 
-* Configuration
+### To start up a newly fresh Rails app
 
-* Database creation
+- run `rails _5.2.3_ <your-app-name>
+- add the following gems to your `Gemfile`:
+```
+gem 'webpacker', '~> 4.0.0'
+gem 'tailwindcss', '~> 1.0.0'
+```
 
-* Database initialization
+- run the following commands in your terminal:
+```
+bundle
+bundle exec rails webpacker:install
+bundle exec rails g tailwindcss:install
+```
 
-* How to run the test suite
+You must add the following to your `config/initializers/content_security_policy.rb`:
+```
+Rails.application.config.content_security_policy do |policy|
+  policy.connect_src :self, :https, 'http://localhost:3035', 'ws://localhost:3035' if Rails.env.development?
+end
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+- inside of `config/webpacker.yml`, you must set `extract_css: true`, default is false.
+- you have to add these two lines to your application layout in order to compile it:
+```
+<%= stylesheet_pack_tag    'application' %>
+<%= javascript_pack_tag 'application' %>
+```
 
-* Deployment instructions
+Webpacker will automatically compile your assets while a bundle exec rails s is active.
 
-* ...
+
+Enjoy!
