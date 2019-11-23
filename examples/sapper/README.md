@@ -49,7 +49,7 @@ Next, create a CSS file for your Tailwind styles. You have to store in it static
 
 Update your `package.json` with the custom scripts.
 
-`build:tailwind is only needed if you want to purge`
+`build:tailwind is only needed if you want to purge. If you are in Windows, use "build:tailwind": "set NODE_ENV=production postcss static/tailwind.css -o static/index.css".`
 
 ```js
 "scripts": {
