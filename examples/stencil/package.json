@@ -4,23 +4,23 @@
   "version": "0.0.1",
   "description": "Tailwind Stencil Example",
   "scripts": {
-    "build": "cross-env NODE_ENV=production stencil build --prerender",
+    "build": "cross-env NODE_ENV=production stencil build",
     "serve": "serve www -p 5000",
     "start": "stencil build --dev --watch --serve"
   },
   "dependencies": {
-    "@stencil/core": "1.0.2"
+    "@stencil/core": "^1.8.2"
   },
   "devDependencies": {
-    "@fullhuman/postcss-purgecss": "^1.2.0",
+    "@fullhuman/postcss-purgecss": "^1.3.0",
     "@stencil/postcss": "^1.0.1",
-    "@types/autoprefixer": "^9.5.0",
-    "@types/node": "^12.0.7",
-    "autoprefixer": "^9.6.0",
-    "cross-env": "^5.2.0",
+    "@types/autoprefixer": "^9.6.1",
+    "@types/node": "^12.12.21",
+    "autoprefixer": "^9.7.3",
+    "cross-env": "^6.0.3",
     "cssnano": "^4.1.10",
-    "serve": "^11.0.1",
-    "tailwindcss": "^1.0.3"
+    "serve": "^11.2.0",
+    "tailwindcss": "^1.1.4"
   },
   "license": "MIT"
 }

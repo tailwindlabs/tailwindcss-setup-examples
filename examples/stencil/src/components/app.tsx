@@ -1,12 +1,12 @@
-import { Component, h } from '@stencil/core';
+import { Component, h } from "@stencil/core";
 
 @Component({
-  tag: 'app-root'
+  tag: "app-root"
 })
 export class App {
   render() {
     return (
-      <div class="antialiased text-gray-900 flex items-center justify-center min-h-screen">
+      <div class="text-gray-900 flex items-center justify-center min-h-screen">
         Incoming message:
         <scoped-css />
         <span> </span>

@@ -1,29 +1,32 @@
-import { Config } from '@stencil/core';
-import { postcss } from '@stencil/postcss';
-import autoprefixer from 'autoprefixer';
+import { Config } from "@stencil/core";
 
-const purgecss = require('@fullhuman/postcss-purgecss')({
-  content: ['./src/**/*.tsx', './src/index.html'],
+import { postcss } from "@stencil/postcss";
+import autoprefixer from "autoprefixer";
+import tailwindcss from "tailwindcss";
+import cssnano from "cssnano";
+import purgecss from "@fullhuman/postcss-purgecss";
+
+const purge = purgecss({
+  content: ["./src/**/*.tsx", "./src/index.html"],
+
   defaultExtractor: content => content.match(/[A-Za-z0-9-_:/]+/g) || []
 });
 
 export const config: Config = {
-  globalStyle: 'src/global/app.css',
+  globalStyle: "src/global/app.css",
   outputTargets: [
     {
-      type: 'www',
+      type: "www",
       serviceWorker: null,
-      baseUrl: 'http://localhost:5000'
+      baseUrl: "http://localhost:5000"
     }
   ],
   plugins: [
     postcss({
       plugins: [
-        require('tailwindcss')('./tailwind.config.js'),
+        tailwindcss("./tailwind.config.js"),
         autoprefixer(),
-        ...(process.env.NODE_ENV === 'production'
-          ? [purgecss, require('cssnano')]
-          : [])
+        ...(process.env.NODE_ENV === "production" ? [purge, cssnano()] : [])
       ]
     })
   ]
