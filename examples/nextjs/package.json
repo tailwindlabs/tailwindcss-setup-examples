@@ -6,7 +6,6 @@
     "start": "next start"
   },
   "dependencies": {
-    "@zeit/next-css": "^1.0.1",
     "@fullhuman/postcss-purgecss": "^1.2.0",
     "autoprefixer": "^9.7.4",
     "next": "^9.2.0",
