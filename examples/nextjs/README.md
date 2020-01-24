@@ -1,9 +1,9 @@
 # Next.js
 
-To add Tailwind to a Next project, start by installing `@zeit/next-css`, `tailwindcss`, `postcss-import` and `autoprefixer`:
+To add Tailwind to a Next (^9.2.0) project, start by installing `tailwindcss`, `postcss-import` and `autoprefixer`:
 
 ```sh
-npm install @zeit/next-css tailwindcss postcss-import autoprefixer
+npm install tailwindcss postcss-import autoprefixer --save
 ```
 
 Next, set up your PostCSS plugins by creating a `postcss.config.js` file and adding the following configuration:
@@ -11,11 +11,12 @@ Next, set up your PostCSS plugins by creating a `postcss.config.js` file and add
 ```js
 module.exports = {
   plugins: [
-    require('postcss-import'),
-    require('tailwindcss'),
-    require('autoprefixer'),
+    "postcss-import",
+    "tailwindcss",
+    "autoprefixer"
   ]
-}
+};
+
 ```
 
 Next, create a CSS file for your Tailwind styles. We've used `css/tailwind.css` for this example:
@@ -42,3 +43,32 @@ class MyApp extends App {
 
 export default MyApp
 ```
+## Setting up Purgecss (optional)
+To add Purgecss, start by installing `@fullhuman/postcss-purgecss`. 
+
+```sh
+npm install @fullhuman/postcss-purgecss --save
+```
+
+Finally, add Purgecss to PostCSS plugins by updating the `postcss.config.js` file and adding the following configuration:
+
+```js
+const purgecss = [
+  "@fullhuman/postcss-purgecss",
+  {
+    content: ["./components/**/*.js", "./pages/**/*.js"],
+    defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || []
+  }
+];
+module.exports = {
+  plugins: [
+    "postcss-import",
+    "tailwindcss",
+    "autoprefixer",
+    ...(process.env.NODE_ENV === "production" ? [purgecss] : [])
+  ]
+};
+
+```
+
+[Learn more about using Purgecss with Tailwind here.](https://tailwindcss.com/docs/controlling-file-size#setting-up-purgecss)
