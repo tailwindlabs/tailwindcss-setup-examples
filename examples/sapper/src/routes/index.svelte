@@ -18,7 +18,7 @@
 	img {
 		width: 100%;
 		max-width: 400px;
-		margin: 0 0 1em 0;
+		margin:0 auto 1em;
 	}
 
 	p {
