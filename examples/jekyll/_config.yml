@@ -21,10 +21,8 @@ plugins:
 # to override the default setting.
 exclude:
   - .gitignore
-  - bin
   - Gemfile
   - Gemfile.lock
-  - netlify.toml
   - node_modules
   - package.json
   - package-lock.json
