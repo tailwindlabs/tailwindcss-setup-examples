@@ -20,14 +20,15 @@ plugins:
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
 exclude:
+  - .gitignore
+  - bin
   - Gemfile
   - Gemfile.lock
+  - netlify.toml
   - node_modules
-  - yarn.lock
+  - package.json
   - package-lock.json
-  - README.md
   - postcss.config.js
   - purgecss.config.js
-  - netlify.toml
-  - bin
-  - .gitignore
+  - README.md
+  - yarn.lock
