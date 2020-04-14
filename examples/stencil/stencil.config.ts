@@ -9,7 +9,7 @@ import purgecss from "@fullhuman/postcss-purgecss";
 const purge = purgecss({
   content: ["./src/**/*.tsx", "./src/index.html"],
 
-  defaultExtractor: content => content.match(/[A-Za-z0-9-_:/]+/g) || []
+  defaultExtractor: (content) => content.match(/[A-Za-z0-9-_:/]+/g) || [],
 });
 
 export const config: Config = {
@@ -18,16 +18,16 @@ export const config: Config = {
     {
       type: "www",
       serviceWorker: null,
-      baseUrl: "http://localhost:5000"
-    }
+      baseUrl: "http://localhost:5000",
+    },
   ],
   plugins: [
     postcss({
       plugins: [
         tailwindcss("./tailwind.config.js"),
         autoprefixer(),
-        ...(process.env.NODE_ENV === "production" ? [purge, cssnano()] : [])
-      ]
-    })
-  ]
+        ...(process.env.NODE_ENV === "production" ? [purge, cssnano()] : []),
+      ],
+    }),
+  ],
 };

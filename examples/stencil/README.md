@@ -11,35 +11,37 @@ npm install @fullhuman/postcss-purgecss @stencil/postcss autoprefixer cssnano ta
 Next, set up the PostCSS plugin in stencil.config.ts
 
 ```js
-import { Config } from '@stencil/core';
-import { postcss } from '@stencil/postcss';
-import autoprefixer from 'autoprefixer';
+import { Config } from "@stencil/core";
+import { postcss } from "@stencil/postcss";
+import autoprefixer from "autoprefixer";
+import tailwindcss from "tailwindcss";
+import cssnano from "cssnano";
+import purgecss from "@fullhuman/postcss-purgecss";
 
-const purgecss = require('@fullhuman/postcss-purgecss')({
-  content: ['./src/**/*.tsx', './src/index.html'],
-  defaultExtractor: content => content.match(/[A-Za-z0-9-_:/]+/g) || []
+const purge = purgecss({
+  content: ["./src/**/*.tsx", "./src/index.html"],
+
+  defaultExtractor: (content) => content.match(/[A-Za-z0-9-_:/]+/g) || [],
 });
 
 export const config: Config = {
-  globalStyle: 'src/global/app.css',
+  globalStyle: "src/global/app.css",
   outputTargets: [
     {
-      type: 'www',
+      type: "www",
       serviceWorker: null,
-      baseUrl: 'http://localhost:5000'
-    }
+      baseUrl: "http://localhost:5000",
+    },
   ],
   plugins: [
     postcss({
       plugins: [
-        require('tailwindcss')('./tailwind.config.js'),
+        tailwindcss("./tailwind.config.js"),
         autoprefixer(),
-        ...(process.env.NODE_ENV === 'production'
-          ? [purgecss, require('cssnano')]
-          : [])
-      ]
-    })
-  ]
+        ...(process.env.NODE_ENV === "production" ? [purge, cssnano()] : []),
+      ],
+    }),
+  ],
 };
 ```
 
@@ -54,12 +56,12 @@ You only want to use purgecss for production builds so modify package.json to en
 
 Consider using `cross-env` if your team uses multiple operating systems.
 
-Next, create a CSS file in your `global` folder for your Tailwind styles. We've used `src/global/css/app.css` for this example:
+Next, create a CSS file in your `global` folder for your Tailwind styles. We've used `src/global/app.css` for this example:
 
 ```css
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 ```
 
 Finally, import your CSS in the index.html in `src/index.html`:
@@ -87,16 +89,16 @@ Using a css file and specifying Using `scoped: true` in the component inlines th
 See `src/components/scoped-css/index.tsx` for an example
 
 ```tsx
-import { Component, h, Prop } from '@stencil/core';
+import { Component, h, Prop } from "@stencil/core";
 
 @Component({
-  tag: 'scoped-css',
-  styleUrl: './scoped-css.css',
-  scoped: true
+  tag: "scoped-css",
+  styleUrl: "./scoped-css.css",
+  scoped: true,
 })
 export class ScopedCss {
   @Prop()
-  greeting: string = 'Hello';
+  greeting: string = "Hello";
   render() {
     return <div class="scoped-class">{this.greeting}</div>;
   }
@@ -118,16 +120,16 @@ Using a css file and specifying Using `shadow: true` in the component inlines th
 See `src/components/shadow-css/index.tsx` for an example
 
 ```tsx
-import { Component, h, Prop } from '@stencil/core';
+import { Component, h, Prop } from "@stencil/core";
 
 @Component({
-  tag: 'shadow-css',
-  styleUrl: './shadow-css.css',
-  shadow: true
+  tag: "shadow-css",
+  styleUrl: "./shadow-css.css",
+  shadow: true,
 })
 export class ShadowCss {
   @Prop()
-  message: string = 'World';
+  message: string = "World";
   render() {
     return <div class="shadow-class">{this.message}</div>;
   }
