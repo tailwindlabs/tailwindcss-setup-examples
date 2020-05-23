@@ -1,4 +1,7 @@
 /* This file is for your main application css. */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 @import "./phoenix.css";
 @import "../node_modules/nprogress/nprogress.css";
 
