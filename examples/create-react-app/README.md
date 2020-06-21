@@ -1,68 +1,53 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Create React App
 
-## Available Scripts
+This example shows a [Create React App](https://create-react-app.dev/) with Tailwind CSS. The following steps were taken to create this project:
 
-In the project directory, you can run:
+1. Create a new Create React App:
+    ```sh
+    npx create-react-app <YOUR_APP_NAME>
+    cd <YOUR_APP_NAME>
+    ```
+2. Add dependencies of Tailwind CSS, the [PostCSS](https://github.com/postcss/postcss) tool, and the recommended [Autoprefixer](https://autoprefixer.github.io/) PostCSS plugin: 
+    ```sh
+    npm install tailwindcss autoprefixer postcss-cli cross-env npm-run-all --save-dev
+    ```
+3. Create a Tailwind CSS configuration file named `tailwind.config.js` with the following content:
+    ```js
+    module.exports = {
+      purge: [
+        './src/**/*.jsx'
+      ],
+      theme: {
+        extend: {},
+      },
+      variants: {},
+      plugins: [],
+    }
+    ```
+    Note: this is the configuration that gets created with `npx tailwind init`, extended with a PurgeCSS [[1]](https://tailwindcss.com/docs/controlling-file-size) [[2]](https://purgecss.com/) configuration. This PurgeCSS configuration makes the following assumptions:
+    1. The `*.jsx` file extension is used for React files to separate them from normal JavaScript files. `App.jsx` in this project was manually renamed from `App.js` to `App.jsx`.
+    2. JSX files are the only files that reference Tailwind CSS class names.
+4. Create a PostCSS configuration file named `postcss.config.js` with the following content:
+    ```js
+    module.exports = {
+      plugins: [
+        require('tailwindcss'),
+        require('autoprefixer')
+      ]
+    }
+    ```
+5. Rename the initial `*.css` files to `*.pcss` and add .`*.css` to `.gitignore`.
 
-### `npm start`
-
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+    Note: using the distinct `*.pcss` file extension for PostCSS files has several benefits. It makes it easy to keep the generated `*.css` files out of version control. It makes it easy for Humans to differentiate between source code and generated code. It is required by some IDEs such as IntelliJ for correct syntax highlighting and code inspection functionality.
+6. Configure the NPM `start` and `build` scripts to include execution of PostCSS:
+    ```
+    "start": "run-p start:**",
+    "start:postcss": "postcss src/**/*.pcss --base src --dir src --ext css --watch --verbose",
+    "start:react": "react-scripts start",
+    "build": "cross-env NODE_ENV=production run-s build:**",
+    "build:postcss": "postcss src/**/*.pcss --base src --dir src --ext css  --verbose",
+    "build:react": "react-scripts build",
+    ```
+   Note: `cross-env` allows setting `NODE_ENV` parameters in an operating system agnostic way. `NODE_ENV=production` enables PurgeCSS. 
+   
+   Note: `npm-run-all` (and its short-cut `run-p`) allows `postcss` to run in watch mode in parallel with `react-scripts`.
