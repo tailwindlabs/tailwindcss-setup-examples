@@ -1,6 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import {Link} from './components/link/Link';
 
 function App() {
   return (
@@ -10,14 +11,8 @@ function App() {
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <Link href="https://reactjs.org" target="_blank">Learn React</Link>
+        <Link href="https://tailwindcss.com/" target="_blank">Learn Tailwind CSS</Link>
       </header>
     </div>
   );
