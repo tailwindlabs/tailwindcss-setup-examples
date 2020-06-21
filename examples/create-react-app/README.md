@@ -39,7 +39,15 @@ This example shows a [Create React App](https://create-react-app.dev/) with Tail
 5. Rename the initial `*.css` files to `*.pcss` and add .`*.css` to `.gitignore`.
 
     Note: using the distinct `*.pcss` file extension for PostCSS files has several benefits. It makes it easy to keep the generated `*.css` files out of version control. It makes it easy for Humans to differentiate between source code and generated code. It is required by some IDEs such as IntelliJ for correct syntax highlighting and code inspection functionality.
-6. Configure the NPM `start` and `build` scripts to include execution of PostCSS:
+6. Add the Tailwind CSS directives to `index.pcss`:
+    ```pcss
+   @tailwind base;
+   @tailwind components;
+   @tailwind utilities;
+   
+   /* ... previous code ... */
+   ``` 
+7. Configure the NPM `start` and `build` scripts to include execution of PostCSS:
     ```
     "start": "run-p start:**",
     "start:postcss": "postcss src/**/*.pcss --base src --dir src --ext css --watch --verbose",
