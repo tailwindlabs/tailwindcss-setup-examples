@@ -76,7 +76,7 @@ module.exports = {
 };
 ```
 
-Then in **angular.js** file, configure the app to use them:
+Then in **angular.js** file, configure the app to use them in both **architect.build** and **architect.serve**:
 
 ```diff
 "architect": {
@@ -103,9 +103,26 @@ Then in **angular.js** file, configure the app to use them:
             "replace": "src/environments/environment.ts",
             "with": "src/environments/environment.prod.ts"
           }
-```
 
-Make those changes for both **architect.build** and **architect.serve**.
+    (...)
+
+    "serve": {
+-     "builder": "@angular-devkit/build-angular:dev-server",
++     "builder": "@angular-builders/custom-webpack:dev-server",
+      "options": {
+        "browserTarget": "angular-cli:build",
++       "customWebpackConfig": {
++         "path": "./webpack.config.dev.js"
++       }
+      },
+      "configurations": {
+        "production": {
++         "customWebpackConfig": {
++           "path": "./webpack.config.prod.js"
++         },
+          "browserTarget": "angular-cli:build:production"
+        }
+```
 
 Next, create the Tailwind config file:
 
@@ -131,7 +148,7 @@ ng serve
 
 ### TailwindCSS as a separate Design System Project
 
-This is more of a recommandation for advanced projects.
+This is more of a recommendation for advanced projects.
 
 As Angular-Cli allows now creating and combining multiple Angular applications into a single one, I personally prefer creating a dedicated sub-project for TailwindCSS called `ui` or `design-system` by running:
 
