@@ -170,7 +170,7 @@ Next, I move `src/styles.css` content to `src/projects/ui/src/styles.scss` (I ke
 +            ],
 ```
 
-That way you can can have a dedicated app to work on your UI components or design system as you run run:
+That way you can have a dedicated app to work on your UI components or design system as you run:
 
 ```sh
 ng serve --project ui
