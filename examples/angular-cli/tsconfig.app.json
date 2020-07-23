@@ -1,5 +1,6 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
-  "extends": "./tsconfig.json",
+  "extends": "./tsconfig.base.json",
   "compilerOptions": {
     "outDir": "./out-tsc/app",
     "types": []
@@ -9,10 +10,6 @@
     "src/polyfills.ts"
   ],
   "include": [
-    "src/**/*.ts"
-  ],
-  "exclude": [
-    "src/test.ts",
-    "src/**/*.spec.ts"
+    "src/**/*.d.ts"
   ]
 }
