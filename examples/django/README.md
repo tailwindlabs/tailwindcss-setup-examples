@@ -22,7 +22,9 @@ yarn add tailwindcss
 ```json
 "build": "rimraf ../../static/css && tailwindcss build src/tailwind.scss | postcss -o ../../static/css/tailwind.min.css"
 ```
-You'll need to add `rimraf`, `postcss-cli` (and maybe `cssnano`) for the script above. After you run the yarn script, you should see a file at [`/static/css/tailwind.min.css`](./django/static/css/tailwind.min.css).
+You'll need to add `rimraf`, `postcss-cli` (and maybe `cssnano`) for the script above. After you run the yarn script, you should see a file at [`/static/css/tailwind.min.css`](./django/static/css/tailwind.min.css). 
+
+You can use whichever package manager you want; this example uses Yarn Berry. 
 
 6. Remove the `/admin` route and add your own `/` route in `myapp/views.py`:
 ```python
