@@ -15,7 +15,7 @@ npm install @fullhuman/postcss-purgecss
 Create your Tailwind config file
 
 ```sh
-./node_modules/.bin/tailwind init tailwind.js
+npx tailwindcss init
 ```
 
 Create a `postcss.config.js` file and add this to it
@@ -31,7 +31,7 @@ const purgecss = require("@fullhuman/postcss-purgecss")({
 
 module.exports = {
   plugins: [
-    tailwindcss("./tailwind.js"),
+    tailwindcss("./tailwind.config.js"),
 
     // only needed if you want to purge
     ...(process.env.NODE_ENV === "production" ? [purgecss] : [])
