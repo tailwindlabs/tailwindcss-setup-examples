@@ -1,70 +1,87 @@
 # Svelte
 
-Setting up Tailwind with svelte is really simple, just install Tailwind and pocstcss-cli:
+Setting up Tailwind with Svelte is really simple, just install necessary dependencies:
 
 ```sh
-npm install tailwindcss postcss-cli --save-dev
-```
-
-If you want to remove unused styles, add PurgeCSS as well
-
-```
-npm install @fullhuman/postcss-purgecss
+npm i -D svelte-preprocess tailwindcss postcss autoprefixer
 ```
 
 Create your Tailwind config file
 
 ```sh
-./node_modules/.bin/tailwind init tailwind.js
+npx tailwindcss init
 ```
 
-Create a `postcss.config.js` file and add this to it
+configure **svelte-preprocess** in `rollup.config.js`
 
 ```js
-const tailwindcss = require("tailwindcss");
+import svelte from 'rollup-plugin-svelte';
+import resolve from '@rollup/plugin-node-resolve';
+import commonjs from '@rollup/plugin-commonjs';
+import livereload from 'rollup-plugin-livereload';
+import { terser } from 'rollup-plugin-terser';
+import sveltePreprocess from 'svelte-preprocess'; // here
 
-// only needed if you want to purge
-const purgecss = require("@fullhuman/postcss-purgecss")({
-  content: ["./src/**/*.svelte", "./public/**/*.html"],
-  defaultExtractor: content => content.match(/[A-Za-z0-9-_:/]+/g) || []
-});
+// ...
 
-module.exports = {
+export default {
+  // ...
   plugins: [
-    tailwindcss("./tailwind.js"),
-
-    // only needed if you want to purge
-    ...(process.env.NODE_ENV === "production" ? [purgecss] : [])
-  ]
+    svelte({
+      dev: !production,
+      css: css => {
+        css.write('bundle.css');
+      },
+      preprocess: sveltePreprocess({
+        // from here
+        postcss: {
+          plugins: [require('tailwindcss'), require('autoprefixer')],
+        },
+      }), // up to this point
+    }),
+    // ...
+  ],
+  // ...
 };
 ```
 
-Next, create a CSS file for your Tailwind styles. You have to store in it public folder `public/tailwind.css` and add this to it :
+netx, import Tailwind styles in `src/App.svelte` :
 
-```css
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+```svelte
+<script>
+	export let name;
+</script>
+
+<style global>
+	@import 'tailwindcss/base';
+
+	@import 'tailwindcss/components';
+
+	@import 'tailwindcss/utilities';
+</style>
+
+<main>
+	<h1>Hello {name}!</h1>
+	<p>
+    	Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.
+	</p>
+</main>
 ```
 
-Update your `package.json` with the custom scripts.
-
-`build:tailwind is only needed if you want to purge`
+Finally, enable purge in `tailwind.config.js`:
 
 ```js
-"scripts": {
-    "watch:tailwind": "postcss public/tailwind.css -o public/index.css -w",
-    "build:tailwind": "NODE_ENV=production postcss public/tailwind.css -o public/index.css",
-    "dev": "run-p start:dev autobuild watch:build",
-    "build": "npm run build:tailwind && rollup -c",
-
-}
-```
-
-Finally, add a stylesheet link to your `public/index.html` file
-
-```html
-<link rel="stylesheet" href="index.css" />
+module.exports = {
+  purge: {
+    enabled: true,
+    content: ['./src/**/*.svelte'],
+  },
+  theme: {
+    extend: {},
+  },
+  variants: {},
+  plugins: [],
+};
 ```
 
 ## Project setup
