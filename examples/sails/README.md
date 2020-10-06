@@ -1,26 +1,95 @@
 # sails
 
-a [Sails v1](https://sailsjs.com) application
+Setting up Tailwind in a `sails new` application is really simple, just install Tailwind and `grunt-postcss` as development dependencies:
 
+```sh
+npm i --save-dev tailwindcss grunt-postcss
+```
+Then generate a `tailwind.config.js` file by running:
 
-### Links
+```sh
+npx tailwind init
+```
+Next, create a CSS file for your Tailwind styles. We've stored in it `/assets/styles/tailwindcss/tailwind.css` for this example:
 
-+ [Sails framework documentation](https://sailsjs.com/get-started)
-+ [Version notes / upgrading](https://sailsjs.com/documentation/upgrading)
-+ [Deployment tips](https://sailsjs.com/documentation/concepts/deployment)
-+ [Community support options](https://sailsjs.com/support)
-+ [Professional / enterprise options](https://sailsjs.com/enterprise)
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
 
+Then create `postcss.js` in `tasks/config/` directory and add the following content:
 
-### Version info
+```js
+module.exports = function (grunt) {
+  grunt.config.set("postcss", {
+    options: {
+      map: true,
+      processors: [require("tailwindcss")("./tailwind.config.js")],
+    },
+    dist: {
+      expand: true,
+      cwd: "assets/styles/tailwindcss",
+      src: ["tailwind.css"],
+      dest: ".tmp/public/styles",
+      ext: ".css",
+    },
+  });
 
-This app was originally generated on Tue Oct 06 2020 11:37:11 GMT+0100 (West Africa Standard Time) using Sails v1.2.4.
+  grunt.loadNpmTasks("grunt-postcss");
+};
+```
 
-<!-- Internally, Sails used [`sails-generate@1.17.2`](https://github.com/balderdashy/sails-generate/tree/v1.17.2/lib/core-generators/new). -->
+You will need to register the `postcss` grunt task in both `tasks/register/compileAssets.js` and `tasks/register/syncAssets.js` like so:
 
+```js
+// tasks/register/compileAssets.js
+module.exports = function (grunt) {
+  grunt.registerTask("compileAssets", [
+    "clean:dev",
+    "less:dev",
+    "copy:dev",
+    "postcss",
+  ]);
+};
+```
 
+```js
+// tasks/register/syncAssets.js
+module.exports = function (grunt) {
+  grunt.registerTask("syncAssets", ["less:dev", "sync:dev", "postcss"]);
+};
+```
 
-<!--
-Note:  Generators are usually run using the globally-installed `sails` CLI (command-line interface).  This CLI version is _environment-specific_ rather than app-specific, thus over time, as a project's dependencies are upgraded or the project is worked on by different developers on different computers using different versions of Node.js, the Sails dependency in its package.json file may differ from the globally-installed Sails CLI release it was originally generated with.  (Be sure to always check out the relevant [upgrading guides](https://sailsjs.com/upgrading) before upgrading the version of Sails used by your app.  If you're stuck, [get help here](https://sailsjs.com/support).)
--->
+Finally we need to exclude the `tailwindcss` folder from `tasks/config/copy.js` `src` pattern. Look for this line:
 
+```js
+// tasks/config/copy.js
+dev: {
+      files: [
+        {
+          expand: true,
+          cwd: "./assets",
+          src: ["**/*.!(coffee|less)"],
+          dest: ".tmp/public",
+        },
+      ],
+    },
+```
+and change it to:
+
+```js
+// tasks/config/copy.js
+dev: {
+      files: [
+        {
+          expand: true,
+          cwd: "./assets",
+          src: ["!(tailwindcss)/**/*.!(coffee|less)"],
+          dest: ".tmp/public",
+        },
+      ],
+    },
+```
+
+And that's it! Just start Sails.js development server by running `sails lift` and you have Tailwind all set-up.
