@@ -1,0 +1,17 @@
+{
+  "name": "tailwindcss-nextjs",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "autoprefixer": "^9.8.6",
+    "next": "9.5.5",
+    "react": "16.14.0",
+    "react-dom": "16.14.0",
+    "tailwindcss": "^1.9.2"
+  }
+}
