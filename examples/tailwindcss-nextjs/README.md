@@ -54,7 +54,7 @@ Inside of `src/styles`, we'll delete the existing CSS files and create a new fil
 @tailwind utilities;
 ```
 
-### 6. Import our new CSS file in `_app.js`
+## 6. Import our new CSS file in `_app.js`
 
 With this new CSS file in place, we'll open the `_app.js` file located in `src/pages`.
 
