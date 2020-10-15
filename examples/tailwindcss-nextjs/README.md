@@ -91,3 +91,5 @@ export default function Home() {
   );
 }
 ```
+
+That's it! You should be all good to go now. Start your project with `npm run dev`, and you should be greeted with a nice Tailwind CSS flavoured NextJS project homepage 🎉
