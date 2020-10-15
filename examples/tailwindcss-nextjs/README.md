@@ -49,6 +49,7 @@ tailwind.config.js
 Inside of `src/styles`, we'll delete the existing CSS files and create a new file called `tailwind.css`. This file will contain three `@tailwind` declaratives:
 
 ```css
+/* src/styles/tailwind.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
