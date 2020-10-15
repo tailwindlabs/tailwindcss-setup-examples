@@ -13,7 +13,7 @@ This will scaffold a new NextJS application for us.
 Let's first move into our new project directory with `cd tailwindcss-nextjs`. From there, we can install Tailwind CSS and NextJS as dependencies:
 
 ```sh
-npn install tailwindcss autoprefixer@^9
+npm install tailwindcss autoprefixer@^9
 ```
 
 Note that at the time of writing this guide, we need to stick to version 9 of Autoprefixer. This will go away when NextJS internally upgrades to PostCSS 8, at what point we'll update this guide! 😅
