@@ -27,7 +27,7 @@ Next, create a CSS file for your Tailwind styles. We've used `css/tailwind.css` 
 @import "tailwindcss/utilities";
 ```
 
-Finally, import your CSS in your `_app.js` component to make them available globally:
+Finally, import your CSS in your `pages/_app.js` component to make them available globally:
 
 ```jsx
 import React from 'react'
