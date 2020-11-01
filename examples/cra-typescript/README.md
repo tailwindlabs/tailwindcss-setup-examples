@@ -1,46 +1,71 @@
-# Getting Started with Create React App
+# CREATE REACT APP (CRA)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+To add [Tailwind](https://tailwindcss.com/) to a [CRA](https://create-react-app.dev) project, start by installing `tailwindcss`, `postcss-import`, `autoprefixer`, `postcss`, `postcss-cli` and `npm-run-all`:
 
-## Available Scripts
+```sh
+yarn add tailwindcss postcss-import autoprefixer postcss postcss-cli npm-run-all
+```
 
-In the project directory, you can run:
+Next, set up your PostCSS plugins by creating a `postcss.config.js` file and adding the following configuration:
 
-### `yarn start`
+```js
+module.exports = {
+  plugins: [
+    require('postcss-import'),
+    require('tailwindcss'),
+    require('autoprefixer'),
+  ]
+};
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Next, set up your Tailwind config by creating a `tailwind.config.js` file and adding the following configuration:
 
-### `yarn test`
+```js
+module.exports = {
+  theme: {
+    container: {
+      center: true,
+    },
+    extend: {},
+  },
+  variants: {},
+  plugins: [],
+  purge: [
+    './src/**/*.ts',
+    './src/**/*.tsx',
+    './public/index.html',
+  ],
+}
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
 
-### `yarn build`
+Next, create a CSS file for your Tailwind styles. We've used `src/styles/tailwind.css` for this example:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```css
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+/* you can add your custom styles here, for example */
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+html, body, #root {
+  height: 100%;
+}
+```
 
-### `yarn eject`
+Finally, import your CSS pos build in your `src/index.tsx` component to make them available globally:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```jsx
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App';
+import './styles/index.css';
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+```
