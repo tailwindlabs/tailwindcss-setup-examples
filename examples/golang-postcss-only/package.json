@@ -1,0 +1,21 @@
+{
+  "name": "contribute-tailwindcss",
+  "version": "1.0.0",
+  "description": "tailwind setup with golang app",
+  "main": "index.js",
+  "scripts": {
+    "build:tailwind": "postcss ./static/css/master.css -o ./static/dist/tailwind.css",
+    "watch": "watch \"npm run build:tailwind\" ./templates"
+  },
+  "devDependencies": {
+    "postcss": "^7.0.17",
+    "postcss-cli": "^6.1.2",
+    "tailwindcss": "^1.0.3"
+  },
+  "dependencies": {
+    "watch": "^1.0.2"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
