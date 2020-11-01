@@ -1,7 +1,7 @@
 import React from 'react';
 
 const App = () => (
-  <div>
+  <div className="lg:container h-screen">
     <header>
       <h1>TailwindCSS with CRA and TypeScript</h1>
       <a
