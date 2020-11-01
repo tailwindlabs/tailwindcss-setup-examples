@@ -16,6 +16,7 @@ Please note that these examples are for the most part contributed and maintained
 - [Wordpress](examples/wordpress-laravel-mix) (using Laravel Mix)
 - [Statamic v2](examples/statamic-v2-laravel-mix) (using Laravel Mix)
 - [Jekyll](examples/jekyll)
+- [Angular](examples/angular-cli)
 
 ## Contributing
 
@@ -31,7 +32,6 @@ Please include instructions for the setup process as well, so it's easier for ot
 Some that we're missing that we'd love to have:
 
 - Ember.js
-- Angular
 - Gatsby
 - Rails
 - Django
