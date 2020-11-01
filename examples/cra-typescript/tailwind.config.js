@@ -6,20 +6,10 @@ module.exports = {
     extend: {},
   },
   variants: {},
-  plugins: [
-    "postcss-import",
-    "tailwindcss",
-    "autoprefixer",
+  plugins: [],
+  purge: [
+    './src/**/*.ts',
+    './src/**/*.tsx',
+    './public/index.html',
   ],
-  purge: {
-    enabled: true,
-    content: [
-      './src/**/*.html',
-      './src/**/*.js',
-      './src/**/*.ts',
-      './src/**/*.tsx',
-      './public/index.html',
-    ],
-    options: {}
-  },
 }
