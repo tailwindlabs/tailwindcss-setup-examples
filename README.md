@@ -7,6 +7,7 @@ Please note that these examples are for the most part contributed and maintained
 ## Available Examples
 
 - [vue-cli](examples/vue-cli)
+- [angular-cli](examples/angular-cli)
 - [Nuxt.js](examples/nuxt)
 - [Next.js](examples/nextjs)
 - [Svelte](examples/svelte)
