@@ -1,0 +1,26 @@
+{
+  "name": "tailwind-stencil-example",
+  "author": "Jag Reehal",
+  "version": "0.0.1",
+  "description": "Tailwind Stencil Example",
+  "scripts": {
+    "build": "cross-env NODE_ENV=production stencil build",
+    "serve": "serve www -p 5000",
+    "start": "stencil build --dev --watch --serve"
+  },
+  "dependencies": {
+    "@stencil/core": "^1.12.3"
+  },
+  "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^2.1.2",
+    "@stencil/postcss": "^1.0.1",
+    "@types/autoprefixer": "^9.7.2",
+    "@types/node": "^13.11.1",
+    "autoprefixer": "^9.7.6",
+    "cross-env": "^7.0.2",
+    "cssnano": "^4.1.10",
+    "serve": "^11.3.0",
+    "tailwindcss": "^1.2.0"
+  },
+  "license": "MIT"
+}
