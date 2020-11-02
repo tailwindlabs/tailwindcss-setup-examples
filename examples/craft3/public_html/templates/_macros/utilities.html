@@ -1,0 +1,106 @@
+{% macro breadcrumb(title, link, spacer) %}
+    {% set showSpacer = "true" %}
+
+    {% if spacer | length %}
+        {% set showSpacer = spacer %}
+    {% endif %}
+
+    {% if showSpacer == "true" %}
+        <li class="nav-item">
+            <span class="nav-link nav-spacer">></span>
+        </li>
+    {% endif %}
+
+    <li class="nav-item">
+        {% if link %}
+            <a class="nav-link" href="{{ link }}">
+                <span class="nav-link-text">{{ title }}</span>
+            </a>
+        {% else %}
+            <span class="nav-link current">
+                {{ title }}
+            </span>
+        {% endif %}
+    </li>
+{% endmacro %}
+
+{% macro phone(phone, prefix, suffix) %}
+    {# Strip out any non-numbers #}
+    {% set formattedPhone = phone | replace('/[^0-9]/', '') %}
+
+    {# Format area code, and prepend '+61' #}
+    {% set formattedPhone = formattedPhone | replace('/^0/', '+61') %}
+
+    <a href="tel:{{ formattedPhone }}">{{ prefix }}{{ phone }}{{ suffix }}</a>
+{% endmacro %}
+
+
+{% macro email(email, prefix, suffix) %}
+    {% set email = '<a href="mailto:' ~ email ~ '">' ~ prefix ~ email ~ suffix ~ '</a>' %}
+    {{ email }}
+{% endmacro %}
+
+
+{% macro video(element, settings = {}) %}
+    {# Handle both native and remote videos (using Embedded Assets plugin) #}
+
+    {% set embed = craft.embeddedAssets.get(element) %}
+    {% if embed %}
+        {% if embed.providerName | lower == 'youtube' %}
+            {# If we want to provide params to control the video, its a little trickier #}
+
+            {# Default settings for videos #}
+            {% set videoSettings = { showinfo: 0, rel: 0 } %}
+
+            {# Extend or overwrite default settings from ones passed into macro #}
+            {% for name, value in settings %}
+                {% set videoSettings = videoSettings | merge({ (name): value }) %}
+            {% endfor %}
+
+            {% set params = [] %}
+
+            {% for name, value in videoSettings %}
+                {% set params = params | merge([name | e('url') ~ '=' ~ value | e('url')]) %}
+            {% endfor %}
+
+            {% set videoId = embed.url | replace('/.+watch\\?v=(.+)/', '$1') %}
+            {% set url = '//youtube.com/embed/' ~ videoId ~ '?' ~ params | join('&') %}
+            <iframe src="{{ url }}" frameborder="0" allowfullscreen></iframe>
+
+        {% else %}
+            {{ embed.safeHtml | raw }}
+        {% endif %}
+    {% else %}
+        {% set videoSettings = '' %}
+
+        {% for name, value in settings %}
+            {% if value %}
+                {% set videoSettings = videoSettings ~ ' ' ~ name ~ '="' ~ value ~ '"' %}
+            {% endif %}
+        {% endfor %}
+
+        <video {{ videoSettings | raw }}>
+            <source src="{{ element.url }}" type="video/mp4">
+        </video>
+    {% endif %}
+{% endmacro %}
+
+
+{% macro lazyLoadImage(element, transform, classes, container = true) %}{% spaceless %}
+    {# Prevent up-scaling #}
+    {# {% if element.width < element.width(transform) or element.height < element.height(transform) %}
+        {% set transform = false %}
+    {% endif %} #}
+
+    <div class="lazyload-container {% if not container %}no-bg{% endif %}">
+        <img class="{{ classes }} lazyload" src="{{ svgPlaceholder({ height: element.height(transform), width: element.width(transform) }) }}" data-src="{{ element.url(transform) }}" alt="{{ element.title }}">
+    </div>
+{% endspaceless %}{% endmacro %}
+
+
+{% macro lazyLoadBgImage(element, transform, classes, container = true) %}{% spaceless %}
+    <div class="lazyload-container {% if not container %}no-bg{% endif %}">
+        <div class="{{ classes }} lazyload" data-bg="{{ element.url(transform) }}" role="img" aria-label="{{ element.title }}"></div>
+    </div>
+{% endspaceless %}{% endmacro %}
+

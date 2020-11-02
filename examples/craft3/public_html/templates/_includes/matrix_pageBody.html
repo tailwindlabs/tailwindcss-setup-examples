@@ -1,0 +1,87 @@
+{% if entry is defined %}
+    {% set page = entry %}
+{% endif %}
+
+{% if category is defined %}
+    {% set page = category %}
+{% endif %}
+
+{% import '_macros/utilities' as utils %}
+
+{% if page is defined %}
+    {% for block in page.pageBody.all() %}
+        {% if block.type == 'contentBlock' %}
+
+            <div class="block-text">
+                {{ block.text }}
+            </div>
+
+        {% elseif block.type == 'heading' %}
+
+            <div class="block-heading">
+                <{{ block.size }}>{{ block.heading }}</{{ block.size }}>
+            </div>
+
+        {% elseif block.type == 'link' %}
+
+            <div class="block-link">
+                <a class="{{ block.button ? 'btn' }}" href="{{ block.linkUrl.url }}" target="{{ block.linkUrl.target }}">
+                    {{ block.linkUrl.text }}
+                </a>
+            </div>
+
+        {% elseif block.type == 'image' %}
+
+            {% if block.image.one() %}
+                <div class="block-image align-{{ block.alignment }} size-{{ block.size }}">
+                    <img src="{{ block.image.one().url(block.size.value) }}" alt="{{ block.image.one().title }}">
+                </div>
+            {% endif %}
+
+        {% elseif block.type == 'gallery' %}
+
+            <div class="block-gallery align-{{ block.alignment }} size-{{ block.size }}">
+                <div class="" data-flickity='{}'>
+                    {% for slide in block.images.all() %}
+                        <img src="{{ slide.getUrl('large') }}" alt="{{ slide.title }}">
+                    {% endfor %}
+                </div>
+            </div>
+
+        {% elseif block.type == 'pullQuote' %}
+
+            <div class="block-pull-quote text-{{ block.textAlignment }} {{ block.showQuotes ? 'show-quotes' }}">
+                <blockquote>
+                    {{ block.quote }}
+                </blockquote>
+
+                {% if block.author %}
+                    <figcaption>
+                        <cite>{{ block.author }}</cite>
+                    </figcaption>
+                {% endif %}
+            </div>
+
+        {% elseif block.type == 'video' %}
+
+            <div class="block-video">
+                <div class="embed-responsive embed-responsive-{{ block.aspectRatio }}">
+                    {% if block.video.one() %}
+                        {{ utils.video(block.video.one(), {
+                            autoplay: block.autoplay,
+                            controls: block.controls,
+                        }) }}
+                    {% endif %}
+                </div>
+            </div>
+
+        {% elseif block.type == 'embed' %}
+
+            <div class="block-embed">
+                {{ block.embed | raw }}
+            </div>
+
+        {% endif %}
+    {% endfor %}
+{% endif %}
+

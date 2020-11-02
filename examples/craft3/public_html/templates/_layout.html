@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="{{ craft.app.language | slice(0,2) }}" prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+    <head>
+        <!-- Responsive-ness -->
+        <meta content="IE=edge" http-equiv="X-UA-Compatible">
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+        <meta content="origin-when-cross-origin" name="referrer"/>
+
+        <!-- SE-Oh -->
+        {% if not craft.app.request.isAjax and not craft.app.request.isLivePreview %}
+            {% hook 'seomaticRender' %}
+        {% endif %}
+
+        <meta content="matthewblode.com" name="designer"/>
+        <meta name="author" content="{{ siteName }}"/>
+        <meta content="Copyright {{ siteName }} {{ now | date('Y') }}. All rights reserved." name="dcterms.rightsHolder">
+
+        <!-- Favicon -->
+        <link href="/assets/img/favicon.png" rel="icon" type="image/png">
+
+        <!-- Google Fonts / Typekit -->
+
+
+        <!-- CSS -->
+        <link href="/assets/css/style.css{{ bust('assets/css/style.css') }}" media="all" rel="stylesheet"/>
+
+        {% spaceless %}
+
+            {% if bodyClass is not defined %}
+                {% if entry is defined %}
+                    {% set bodyClass = 'entry-' ~ entry.slug ~ ' type-' ~ entry.type %}
+                {% endif %}
+                {% if category is defined %}
+                    {% set bodyClass = 'category-' ~ category.slug %}
+                {% endif %}
+            {% endif %}
+
+            {# Import macros for global accessibility #}
+            {% import '_macros/utilities' as utils %}
+
+        {% endspaceless %}
+    </head>
+
+    <body class="preload {{ bodyClass | default('') }} font-sans antialiased">
+
+        <div id="app">
+            {% block content %}
+
+            {% endblock %}
+        </div>
+
+        <script src="/assets/js/main.js{{ bust('assets/js/main.js') }}"></script>
+
+    </body>
+</html>

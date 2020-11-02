@@ -1,0 +1,24 @@
+{% set seoTitle = 'Unauthorized' %}
+
+{% extends "_layout" %}
+
+{% block content %}
+
+<div class="section-page section-error">
+    <div class="container">
+        <h2 class="h1 error-number">400</h2>
+        <h3 class="error-title">{{ seoTitle | smartypants }}</h3>
+
+        <div class="page-content">
+            <p>You don’t have the proper credentials to access this page.  Please <a href="/contact">contact us</a> about this issue.</p>
+
+            {% if message is defined %}
+                <div style="display: none;">{{ message }}</div>
+            {% endif %}
+
+            <a href="/" class="btn btn-primary">Return home</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,8 @@
+// ========================================================================
+// Base – Global
+// ========================================================================
+
+// Prevents CSS transitions from firing on page-load. Removed via JS
+.preload * {
+    transition: none !important;
+}

@@ -1,0 +1,16 @@
+// Tailwind
+@tailwind base;
+@tailwind components;
+
+// Base
+@import "base/global";
+@import "base/typography";
+
+@tailwind utilities;
+
+// Site
+@import "site/pages/*";
+@import "site/home/*";
+
+// Vendor
+// @import "site/vendor/*";
