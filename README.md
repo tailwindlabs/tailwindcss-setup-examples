@@ -13,7 +13,7 @@ Please note that these examples are for the most part contributed and maintained
 - [Sapper](examples/sapper)
 - [Laravel](examples/laravel-postcss-only) (PostCSS-only)
 - [Gridsome](examples/gridsome)
-- [Wordpress](examples/wordpress-laravel-mix) (using Laravel Mix)
+- [WordPress](examples/wordpress-laravel-mix) (using Laravel Mix)
 - [Statamic v2](examples/statamic-v2-laravel-mix) (using Laravel Mix)
 - [Jekyll](examples/jekyll)
 
