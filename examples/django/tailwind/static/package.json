@@ -1,0 +1,16 @@
+{
+  "name": "django_tailwind",
+  "description": "",
+  "scripts": {
+    "build": "rimraf ../../static/css && tailwindcss build src/tailwind.scss | postcss -o ../../static/css/tailwind.min.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "cssnano": "^4.1.10",
+    "postcss-cli": "^7.0.32",
+    "rimraf": "^3.0.2",
+    "tailwindcss": "^1.5.1"
+  }
+}

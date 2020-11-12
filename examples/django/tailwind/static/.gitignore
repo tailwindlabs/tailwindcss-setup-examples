@@ -1,0 +1,10 @@
+node_modules
+
+# https://github.com/yarnpkg/berry/issues/454#issuecomment-530312089
+# https://next.yarnpkg.com/advanced/qa#which-files-should-be-gitignored
+.yarn/*
+!.yarn/cache
+!.yarn/releases
+!.yarn/plugins
+!.yarn/pnpify
+!.yarn/versions
