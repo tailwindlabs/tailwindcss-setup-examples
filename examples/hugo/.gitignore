@@ -1,0 +1,10 @@
+.DS_Store
+/node_modules
+package-lock.json
+node_modules/
+public/
+public/*
+resources/
+resources/*
+/resources/
+/resources/*
