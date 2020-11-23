@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+    <div class="flex items-center justify-center h-screen">
+        <div class="bg-gray-100 text-gray-600 font-bold rounded-lg border border-gray-200 shadow-lg p-6">
+            <h1 class="flex justify-between text-3xl font-semybold pb-6">
+                <span>Hello {{ controller_name }}!</span>
+                <span>✅</span>
+            </h1>
+
+            This friendly message is coming from:
+            <ul class="list-disc list-inside pt-4 pr-4 pl-4">
+                <li class="pb-2">Your controller at <code class="bg-gray-300 p-1 rounded-md"><a
+                                href="{{ 'src/Controller/HomeController.php'|file_link(0) }}"
+                                class="text-blue-600 underline">src/Controller/HomeController.php</a></code></li>
+                <li class="pb-2">Your template at <code class="bg-gray-300 p-1 rounded-md"><a
+                                href="{{ 'templates/home/index.html.twig'|file_link(0) }}"
+                                class="text-blue-600 underline">templates/home/index.html.twig</a></code></li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}
