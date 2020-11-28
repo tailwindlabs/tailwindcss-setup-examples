@@ -18,7 +18,7 @@ The [jekyll-purgecss](https://github.com/mhanberg/jekyll-purgecss) plugin is use
 
 ### Install project dependencies
 
-```shell
+```sh
 $ bundle config set --local path vendor/bundle
 $ bundle install
 $ yarn install
@@ -30,7 +30,7 @@ $ yarn install
 ### Start dev serve
 
 ```sh
-$ bundle exec jekyll serve --trace
+$ bundle exec jekyll serve --trace --livereload
 ```
 
 ### Build for production
