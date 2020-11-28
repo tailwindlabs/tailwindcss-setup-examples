@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="template" version="3.8" client="site" method="upgrade">
+  <name>Tailwind CSS in Joomla</name>
+  <version>0.1.0</version>
+  <creationDate>2019-06-09</creationDate>
+
+  <description><![CDATA[
+Tailwind CSS in Joomla.
+]]>  </description>
+
+  <files>
+    <folder>css</folder>
+    <folder>html</folder>
+    <folder>js</folder>
+    <folder>resources</folder>
+    <filename>index.php</filename>
+    <filename>package.json</filename>
+    <filename>tailwind.config.js</filename>
+    <filename>templateDetails.xml</filename>
+    <filename>webpack.mix.js</filename>
+  </files>
+  <languages>
+    <language tag="en-GB">language/en-GB/en-GB.tpl_joomla-laravel-mix.ini</language>
+    <language tag="en-GB">language/en-GB/en-GB.tpl_joomla-laravel-mix.sys.ini</language>
+  </languages>
+  <positions>
+    <position>analytics</position>
+    <position>debug</position>
+  </positions>
+  <config>
+    <fields name="params">
+      <fieldset name="advanced">
+      </fieldset>
+    </fields>
+  </config>
+</extension>
