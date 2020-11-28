@@ -27,7 +27,7 @@ $ yarn install
 
 ## Usage
 
-### Start dev serve
+### Start dev server
 
 ```sh
 $ bundle exec jekyll serve --trace --livereload
@@ -36,13 +36,13 @@ $ bundle exec jekyll serve --trace --livereload
 ### Build for production
 
 ```sh
-$ JEKYLL_ENV=production bundle exec jekyll build
+$ JEKYLL_ENV=production bundle exec jekyll build --trace
 ```
 
 
 ## Configuration
 
-In a few project, setup your config files as below.
+In a new project, setup your config files as below.
 
 ### Gemfile
 
