@@ -1,31 +1,23 @@
-# Welcome to Jekyll!
-#
-# This config file is meant for settings that affect your whole blog, values
-# which you are expected to set up once and rarely edit after that. If you find
-# yourself editing this file very often, consider using Jekyll's data files
-# feature for the data you need to update frequently.
-#
-# For technical reasons, this file is *NOT* reloaded automatically when you use
-# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+### Site metadata ###
 
-# Build settings
-markdown: kramdown
-plugins:
-  - jekyll-postcss
-  - jekyll-purgecss
+title: Jekyll Tailwind Demo
+description:
 
-# Exclude from processing.
-# The following items will not be processed, by default. Create a custom list
-# to override the default setting.
+### Build settings ###
+
+url: ""
+baseurl: "/jekyll-with-tailwind"
+
 exclude:
+  - bin/
+  - vendor/
   - Gemfile
   - Gemfile.lock
-  - node_modules
+  - node_modules/
+  - package*.json
   - yarn.lock
-  - package-lock.json
-  - README.md
   - postcss.config.js
   - purgecss.config.js
+  - README.md
+  - Makefile
   - netlify.toml
-  - bin
-  - .gitignore
