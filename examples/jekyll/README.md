@@ -2,46 +2,57 @@
 
 ## About
 
-This project uses [jekyll-postcss](https://github.com/mhanberg/jekyll-postcss) to manage compiling your Tailwind. You can use any [PostCSS](https://postcss.org) plugin by installing it with `yarn` or `npm` and adding it to your `postcss.config.js`.
+This project uses [jekyll-postcss](https://github.com/mhanberg/jekyll-postcss) to compile Tailwind CSS for you.
 
-[jekyll-purgecss](https://github.com/mhanberg/jekyll-purgecss) is used to integrate Purgecss (only in production).
+You can use any [PostCSS](https://postcss.org) plugin by installing it with `yarn` or `npm` and adding it to your [postcss.config.js](postcss.config.js).
+
+The [jekyll-purgecss](https://github.com/mhanberg/jekyll-purgecss) plugin is used to integrate Purgecss (only in production).
+
+
+## Installation
+
+### Requirements
+
+- Ruby
+- Yarn and Node.js
+
+### Install project dependencies
+
+```sh
+$ bundle config set --local path vendor/bundle
+$ bundle install
+$ yarn install
+```
+
 
 ## Usage
 
-### Locally
+### Start dev server
 
-`bundle exec jekyll serve`
-
-### Production
-
-`JEKYLL_ENV=production bundle exec jekyll build`
-
-## Install
-
-Once you configure the following files, run:
-
-```shell
-$ bundle install
-$ yarn install
-
-$ yarn run tailwind init _includes/tailwind.config.js
+```sh
+$ bundle exec jekyll serve --trace --livereload
 ```
 
+### Build for production
+
+```sh
+$ JEKYLL_ENV=production bundle exec jekyll build --trace
+```
+
+
+## Configuration
+
+In a new project, setup your config files as below.
+
 ### Gemfile
+
+Add these gems to your [Gemfile](Gemfile). By using the plugins group as below, they will be enabled without being added to `plugins` in your config.
 
 ```ruby
 group :jekyll_plugins do
   gem "jekyll-postcss"
   gem "jekyll-purgecss"
 end
-```
-
-### _config.yml
-
-```yaml
-plugins:
-  - jekyll-postcss
-  - jekyll-purgecss
 ```
 
 ### package.json
@@ -82,4 +93,8 @@ module.exports = {
 };
 ```
 
+### tailwind.config.js
 
+```sh
+$ yarn run tailwind init _includes/tailwind.config.js
+```

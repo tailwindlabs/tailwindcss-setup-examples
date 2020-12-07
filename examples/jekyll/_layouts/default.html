@@ -3,17 +3,18 @@
   <meta charset="utf-8">
   {% feed_meta %}
   {% seo %}
-  <link rel="stylesheet" href="/css/site.css">
+  <link rel="stylesheet" href="{{ site.baseurl }}{% link css/styles.css %}">
 </head>
 <html>
-  <body>
-    <section>
-      {{ content }}
-    </section>
 
-    {% if jekyll.environment == 'production' %}
-      {% include analytics.html %}
-    {% endif %}
-  </body>
+<body>
+  <section>
+    {{ content }}
+  </section>
+
+  {% if jekyll.environment == 'production' %}
+  {% include analytics.html %}
+  {% endif %}
+</body>
+
 </html>
-

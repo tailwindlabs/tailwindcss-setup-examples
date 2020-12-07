@@ -9,4 +9,4 @@
 
 /* Write your styles above this line. */
 
-@tailwind utilities;
+@import "tailwindcss/utilities";
