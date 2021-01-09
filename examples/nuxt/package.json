@@ -9,10 +9,10 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
-    "@nuxtjs/tailwindcss": "^0.1.0",
-    "nuxt-start": "^2.8.1"
+    "nuxt-start": "^2.14.0"
   },
   "devDependencies": {
-    "nuxt": "^2.8.1"
+    "@nuxtjs/tailwindcss": "^3.0.0",    
+    "nuxt": "^2.14.0"
   }
 }
