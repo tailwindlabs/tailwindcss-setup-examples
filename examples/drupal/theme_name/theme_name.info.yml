@@ -1,0 +1,27 @@
+name: Theme Name
+type: theme
+description: Simple example theme for including tailwindcss.
+core: 8.x
+php: 7.2
+base theme: stable
+# Need to add libraries key.
+libraries:
+  - theme_name/global-styling
+  - theme_name/global-scripts
+# Update Regions as needed.
+regions:
+  header: Header
+  content: Content
+  sidebar_first: "Sidebar First"
+  footer: Footer
+  header: Header
+  primary_menu: 'Primary menu'
+  secondary_menu: 'Secondary menu'
+  page_top: 'Page top'
+  page_bottom: 'Page bottom'
+  highlighted: Highlighted
+  featured_top: 'Featured top'
+  breadcrumb: Breadcrumb
+  content: Content
+  sidebar_first: 'Sidebar first'
+  footer_first: 'Footer first'
