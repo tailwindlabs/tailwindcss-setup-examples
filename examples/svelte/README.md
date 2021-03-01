@@ -3,19 +3,19 @@
 Setting up Tailwind with svelte is really simple, just install Tailwind and pocstcss-cli:
 
 ```sh
-npm install tailwindcss postcss-cli --save-dev
+npm install tailwindcss postcss-cli npm-run-all --save-dev
 ```
 
 If you want to remove unused styles, add PurgeCSS as well
 
 ```
-npm install @fullhuman/postcss-purgecss
+npm install @fullhuman/postcss-purgecss --save-dev
 ```
 
 Create your Tailwind config file
 
 ```sh
-./node_modules/.bin/tailwind init tailwind.js
+npx tailwind init tailwind.js
 ```
 
 Create a `postcss.config.js` file and add this to it
@@ -53,9 +53,10 @@ Update your `package.json` with the custom scripts.
 
 ```js
 "scripts": {
+    "autobuild": "rollup -c -w",
     "watch:tailwind": "postcss public/tailwind.css -o public/index.css -w",
     "build:tailwind": "NODE_ENV=production postcss public/tailwind.css -o public/index.css",
-    "dev": "run-p start:dev autobuild watch:build",
+    "dev": "run-p autobuild watch:tailwind",
     "build": "npm run build:tailwind && rollup -c",
 
 }
