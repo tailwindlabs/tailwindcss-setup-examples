@@ -19,7 +19,7 @@ Please note that these examples are for the most part contributed and maintained
 
 ## Contributing
 
-If we're missing you're favorite framework/static site generator/CMS/whatever, we'd love a PR that includes a barebones example of the best way to set up Tailwind in that environment.
+If we're missing your favorite framework/static site generator/CMS/whatever, we'd love a PR that includes a barebones example of the best way to set up Tailwind in that environment.
 
 Try to keep the examples as simple as humanly possible, ideally there would be two commits:
 
